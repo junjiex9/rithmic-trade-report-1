@@ -75,10 +75,13 @@ LANG_OPTIONS = {
     }
 }
 
+# ✅ 必须先设置页面配置，再做其他任何 Streamlit 操作
+st.set_page_config(page_title="📈 自动化交易分析报告生成器", layout="wide")
+
+# 再进行语言选择和界面设置
 lang_choice = st.sidebar.selectbox("语言 / Language", options=list(LANG_OPTIONS.keys()), index=0)
 lng = LANG_OPTIONS[lang_choice]
 
-st.set_page_config(page_title=lng['title'], layout="wide")
 st.title(lng['title'])
 
 SNAPSHOT_DIR = "snapshots"
